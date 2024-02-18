@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-4">Resume Builder</h1>
+        
+        <div id="registration-section">
+            <!-- User registration form goes here -->
+            <h3>User Registration</h3>
+            <form id="registrationForm">
+                <!-- Form fields for registration -->
+            </form>
+        </div>
+
+        <div id="template-section" class="mt-4">
+            <!-- Resume template selection goes here -->
+            <h3>Choose Template</h3>
+            <select id="templateSelect" class="form-control"></select>
+        </div>
+
+        <div id="form-section" class="mt-4">
+            <!-- Resume form goes here -->
+            <h3>Build Your Resume</h3>
+            <form id="resumeForm"></form>
+        </div>
+
+        <div id="preview-section" class="mt-4">
+            <!-- Resume preview goes here -->
+            <h3>Preview</h3>
+            <div id="resumePreview"></div>
+        </div>
+
+        <div id="download-section" class="mt-4">
+            <!-- Download and export options go here -->
+            <h3>Download and Export</h3>
+            <button id="downloadBtn" class="btn btn-primary">Download Resume</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* Add your styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Add more styles based on your design */
+// User registration form fields (optional)
+const registrationFormFields = ['Username', 'Email', 'Password'];
+
+// Resume form fields
+const resumeFormFields = ['Name', 'Email', 'Education', 'Work Experience', 'Skills'];
+
+// Resume templates (replace with actual template data)
+const templates = ['Template 1', 'Template 2', 'Template 3'];
+
+// Populate template selection dropdown
+const templateSelect = document.getElementById('templateSelect');
+templates.forEach(template => {
+    const option = document.createElement('option');
+    option.textContent = template;
+    templateSelect.appendChild(option);
+});
+
+// Build user registration form
+const registrationForm = document.getElementById('registrationForm');
+registrationFormFields.forEach(field => {
+    const div = document.createElement('div');
+    div.className = 'form-group';
+    div.innerHTML = `
+        <label for="${field.toLowerCase()}">${field}</label>
+        <input type="text" class="form-control" id="${field.toLowerCase()}" placeholder="Enter ${field}">
+    `;
+    registrationForm.appendChild(div);
+});
+
+// Build resume form
+const resumeForm = document.getElementById('resumeForm');
+resumeFormFields.forEach(field => {
+    const div = document.createElement('div');
+    div.className = 'form-group';
+    div.innerHTML = `
+        <label for="${field.toLowerCase()}">${field}</label>
+        <input type="text" class="form-control" id="${field.toLowerCase()}" placeholder="Enter ${field}">
+    `;
+    resumeForm.appendChild(div);
+});
+
+// Preview resume
+const resumePreview = document.getElementById('resumePreview');
+function previewResume() {
+    // Clear previous preview
+    resumePreview.innerHTML = '';
+    
+    // Create and append preview content (replace with actual preview content)
+    const previewContent = document.createElement('div');
+    previewContent.innerHTML = '<h4>Preview Content</h4>';
+    resumePreview.appendChild(previewContent);
+}
+
+// Download resume (replace with actual download logic)
+const downloadBtn = document.getElementById('downloadBtn');
+downloadBtn.addEventListener('click', function() {
+    // Replace this with the logic to generate and download the resume
+    alert('Downloading resume...');
+});
